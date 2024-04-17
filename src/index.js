@@ -1,6 +1,11 @@
 function handleSubmit(event) {
   event.preventDefault();
-  console.log(event.target[0].value);
+  handleResponse(event.target[0].value);
+}
+
+function handleResponse(response) {
+  console.log(response);
+  console.log(listItem);
 }
 
 let listItem = document.querySelectorAll("li");
