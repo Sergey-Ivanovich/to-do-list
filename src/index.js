@@ -4,33 +4,35 @@ function handleSubmit(event) {
 }
 
 function handleResponse(response) {
-  console.log(response);
-  console.log(listItem);
+  updateList(response);
 }
 
-let listItem = document.querySelectorAll("li");
+function updateList(response) {
+  listItems.push(response);
+  refreshList();
+}
+
+function refreshList() {
+  listContainerElement.innerHTML = null;
+  listItems.forEach(function (item) {
+    listContainerElement.innerHTML += `<li>${item}</li>`;
+  });
+}
+
 let entryBoxElement = document.querySelector("#entryBox");
 let entryFormElement = document.querySelector("#entryForm");
 let listContainerElement = document.querySelector(".list-container");
-let activeItems = listItem.length;
-let inactiveItems = 0;
+
+let listItems = ["Hello", "Hey", "hi"];
+
+listItems.forEach(function (item) {
+  item.addEventListener("click", removeItem);
+
+  function removeItem() {
+    listItems.splice(item);
+  }
+});
 
 entryFormElement.addEventListener("submit", handleSubmit);
 
-listItem.forEach(function (item) {
-  item.addEventListener("click", crossItem);
-
-  function crossItem() {
-    item.classList.add("cross");
-
-    setTimeout(eliminateItem, 1000);
-  }
-
-  function eliminateItem() {
-    inactiveItems += 1;
-    item.classList.add("eliminate");
-    if (activeItems - inactiveItems === 0) {
-      listContainerElement.innerHTML = `<span class="text-black-50 text-center"> <h3 class="mb-3"> To-Do List is Empty </h3></span> `;
-    }
-  }
-});
+refreshList();
