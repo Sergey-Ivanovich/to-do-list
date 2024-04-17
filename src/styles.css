@@ -1,0 +1,41 @@
+@keyframes eliminate {
+  0% {
+    transform: translateX(0px);
+  }
+
+  25% {
+    transform: translateX(-10px);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+}
+
+li {
+  font-size: 20px;
+}
+
+.submit-button {
+  width: 24%;
+}
+
+li:hover {
+  cursor: pointer;
+  text-decoration: line-through;
+}
+
+.cross {
+  text-decoration: line-through;
+  animation: 1s eliminate;
+}
+
+.eliminate {
+  display: none;
+}
