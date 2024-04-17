@@ -40,12 +40,17 @@ li:hover {
   display: none;
 }
 
+form {
+  display: flex;
+  justify-content: space-between;
+}
+
 .my-w-100 {
   width: 50%;
 }
 
 .my-w {
-  width: 100%;
+  width: 23%;
 }
 
 @media (max-width: 900px) {
