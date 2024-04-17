@@ -17,21 +17,35 @@ function refreshList() {
   listItems.forEach(function (item) {
     listContainerElement.innerHTML += `<li>${item}</li>`;
   });
+  listItemElement = document.querySelectorAll("li");
+  listItemElement.forEach(function (item, index) {
+    item.addEventListener("click", eliminateItemCss);
+
+    function eliminateItemCss() {
+      item.classList.add("cross");
+      listItems.splice();
+      listItems.splice(index, 1);
+      console.log(listItems);
+      console.log(index);
+      setTimeout(refreshList, 1000);
+    }
+  });
+
+  if (listItems.length === 0) {
+    listContainerElement.innerHTML = `<h3 class="text-center opacity-50">To-Do List is Empty</h3>`;
+  }
 }
 
 let entryBoxElement = document.querySelector("#entryBox");
 let entryFormElement = document.querySelector("#entryForm");
 let listContainerElement = document.querySelector(".list-container");
+let listItemElement = null;
 
-let listItems = ["Hello", "Hey", "hi"];
-
-listItems.forEach(function (item) {
-  item.addEventListener("click", removeItem);
-
-  function removeItem() {
-    listItems.splice(item);
-  }
-});
+let listItems = [
+  "Hello!",
+  "Click on a To-Do to Delete It",
+  "Add More To-Dos which the form at the Top",
+];
 
 entryFormElement.addEventListener("submit", handleSubmit);
 
