@@ -25,8 +25,7 @@ function refreshList() {
       item.classList.add("cross");
       listItems.splice();
       listItems.splice(index, 1);
-      console.log(listItems);
-      console.log(index);
+
       setTimeout(refreshList, 1000);
     }
   });
