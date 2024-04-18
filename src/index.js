@@ -31,7 +31,7 @@ function refreshList() {
   });
 
   if (listItems.length === 0) {
-    listContainerElement.innerHTML = `<h3 class="text-center opacity-50">To-Do List is Empty</h3>`;
+    listContainerElement.innerHTML = `<h3 class="text-center opacity-50 empty">To-Do List is Empty</h3>`;
   }
 }
 

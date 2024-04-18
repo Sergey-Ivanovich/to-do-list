@@ -45,6 +45,10 @@ form {
   justify-content: space-between;
 }
 
+.empty {
+  margin-left: -32px;
+}
+
 .my-w-100 {
   width: 50%;
 }
